@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsonPlaceholder</title>
+</head>
+
+<body>
+    <h2>Using the <i> fetch() browser method </i> to fetch data from API</h2>
+    <div id="output"> <br>
+        <hr>
+    </div>
+    
+    <div class="container">
+        <span>
+            ID: <input type="text" id="input" placeholder="Enter a user Id to find details">
+        </span>
+        <span>
+            <button onclick="fetchData()"> Fetch API to get data </button>
+        </span>
+    </div>
+
+    <hr>
+
+    <table id="myTable" border="1px">
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody class="tbodymain">
+           
+        </tbody>
+        <div class='extrabtn'></div>
+    </table>
+
+
+    <script>
+        let input = document.querySelector('input');
+        let output = document.getElementById('output');
+        let table = document.getElementById("myTable");
+        let tbodymain = document.querySelector('.tbodymain')
+        let extrabtn = document.querySelector('.extrabtn')
+        let arr = [];
+
+        async function fetchData() {
+            await fetch('https://jsonplaceholder.typicode.com/todos/')
+               .then(response => response.json())
+                .then(element => {
+                    arr = element
+                })
+            
+                renderTableOnLoad();
+        }
+
+        /*
+         There are some way to write string in JS.
+         1. " " => Normal sting
+         2. ' ' =>  String and char
+         3. ` ` => Templete litreal 
+        */
+
+        function renderTableOnLoad(){
+           for(var i=0;i<arr.length;i++){
+            tbodymain.innerHTML += `
+                <tr onclick="anotherLoad(${i})">
+                    <td>${arr[i].userId}</td>
+                    <td>${arr[i].id}</td>
+                    <td>${arr[i].title}</td>
+                    <td>${arr[i].completed}</td>
+                </tr>
+            `
+           }
+        }
+
+        function anotherLoad(index){
+            tbodymain.innerHTML = `
+                <tr>
+                    <td>${arr[index].userId}</td>
+                    <td>${arr[index].id}</td>
+                    <td>${arr[index].title}</td>
+                    <td>${arr[index].completed}</td>
+                </tr>
+            `
+            extrabtn.innerHTML = `
+                <button onclick="main()">Click me to back</button>
+            `
+        }
+
+        
+        async function main(){
+            await fetchData();
+            console.log(arr)
+        }
+        main();
+    </script>
+</body>
+
+</html>

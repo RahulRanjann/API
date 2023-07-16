@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&family=Poppins:wght@100&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background-image: url(image/bg.jpg);
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.stage_1{
+    
+}
+#input{
+    width: 85vw;
+    height: 7vh;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #171717;
+    border-radius: 30px;
+    margin: 10px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#input #btn_location{
+    border:none;
+    height: 6vh;
+    background: none;
+    
+}
+
+#input #country{
+    margin: 10px;
+}
+
+#input .input-field{
+    width: 85vw;
+    height: 6.5vh;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin-left:  30px;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 2px;
+    text-align: center;
+}
+
+
+#input .input-field::placeholder{
+    color: #171717;
+    font-weight: 500;
+}
+
+
+#input #btn_search {
+    border:none;
+    height: 6vh;
+    background: none;
+
+}
+
+#dateTime{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+}
+
+#dateTime #time{
+    width: 60vw;
+    height: 7vh;
+    padding: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    margin: 10px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+#dateTime #date{
+    width: 50vw;
+    height: 7vh;
+    padding: 10px;
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    
+}
+#date,
+#time,
+#input{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    backdrop-filter: blur(50px);
+    border:none;
+}
+
+
+.stage_2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+}
+
+#temperature,
+#humidity,
+#windSpeed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+    height: 25vh;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: x-large;
+    font-weight: bolder;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    backdrop-filter: blur(50px);
+}
+
+.stage_3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+}
+
+#pressure,
+#sunRise,
+#weather{
+    width: 15vw;
+    height: 25vh;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: larger;
+    font-weight: bolder;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    backdrop-filter: blur(50px);
+}
+
+.foot{
+    margin-top: auto;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    backdrop-filter: blur(50px);
+    border-radius: 5px;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #ffffff;
+    font-weight: bold;  
+    text-align: center;
+  }
+
+  .temp,
+  .humi,
+  .wind,
+  .weather
+  {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JsonPlaceholder</title>
+</head>
+
+<body>
+    <h2>Using the <i> fetch() browser method </i> to fetch data from API</h2>
+    <div id="output"> <br>
+        <hr>
+    </div>
+    
+    <div class="container">
+        <span>
+            ID: <input type="text" id="input" placeholder="Enter a user Id to find details">
+        </span>
+        <span>
+            <button onclick="fetchData()"> Fetch API to get data </button>
+        </span>
+    </div>
+
+    <hr>
+
+    <table id="myTable" border="1px">
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+
+    <script>
+        let input = document.querySelector('input');
+        let output = document.getElementById('output');
+        
+        async function fetchData() {
+            await fetch('https://jsonplaceholder.typicode.com/todos/'+input.value)
+               .then(response => response.json())
+                .then(element => {
+                    
+                    output.innerHTML += "UserId = " + element.userId + "<br/>";
+                    output.innerHTML += "Id = " + element.id + "<br/>";
+                    output.innerHTML += "Title = " + element.title + "<br/>";
+                    output.innerHTML += "Completed = " + element.completed + "<br/>";
+                    
+                    
+
+                })
+        }
+    </script>
+</body>
+
+</html>

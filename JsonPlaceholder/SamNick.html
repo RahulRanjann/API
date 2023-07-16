@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table border="1">
+        <pranjal>
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Title</th>
+                <th>Body</th>
+            </tr>
+        </pranjal>
+        <tbody id="tableBody"></tbody>
+        <tbody id="bodyDetails"></tbody>
+
+    </table>
+
+    <script>
+
+        //API or Local Host.....
+        const fetchCall = fetch('https://jsonplaceholder.typicode.com/posts'); //unchangable ......... constet
+        console.log(fetchCall);
+        const responce = fetchCall.then((res) => res.json()).catch((err) => console.log(err));
+        responce.then((res) => {
+            console.log(res);
+            document.getElementById('tableBody').innerHTML = renderTableData(res);
+        })
+        //map :: 
+        //.json and .JSON
+        const renderTableData = (list) => {
+            return list.map(
+                (item) =>
+                    `<tr onclick="mainFn(${item.id-1})">
+                    <td id="selectId">${item.id}</td>
+                    <td>${item.userId}</td>
+                    <td>${item.title}</td>
+                    <td>${item.body}</td>
+                </tr>`
+            )
+        }
+
+        function mainFn(r) {
+            responce.then((respo) => {
+                document.getElementById("tableBody").style.display = "none";
+                document.getElementById("bodyDetails").innerHTML =
+                    `<tr>
+                    <td>${respo[r].id}</td>
+                    <td>${respo[r].userId}</td>
+                    <td>${respo[r].title}</td>
+                    <td>${respo[r].body}</td>
+                </tr>  </br> <button onclick="refresh()">Go Back</button>
+                            <button onclick="window.print()">Print</button>`;
+            })
+        }
+        function refresh() {
+            location.reload();
+        }
+    </script>
+
+
+
+
+    <!-- <script>
+        // let store = {};
+        const fetchCall = fetch('https://jsonplaceholder.typicode.com/posts');
+        const response = fetchCall
+            .then((res) => res.json())
+            .catch((err) => console.error(err));
+        response.then((res) => {
+            console.log('res1 :: ', res);
+            // store = res;
+            // console.log("StoreInside:: ", store);
+            document.getElementById('tableBody').innerHTML = renderTableData(res);
+            globleData(res);
+        });
+        //console.log("StoreOutSide:: ", store);
+
+        // Decliare a variable [] => and push the API data here.
+        // let cloneData = JSON.parse(JSON.stringify(Object));
+        // deep clone.... 
+        function globleData(res) {
+
+            let cloneData = JSON.parse(JSON.stringify(res));
+        }
+
+
+
+        const renderTableData = (list) => {
+            return list?.map(
+                (item) => `<tr  onclick="mainFn(${item.id})">
+    <td id="selectId">${item.id}</td>
+    <td>${item.userId}</td>
+    <td>${item.title}</td>
+    <td>${item.body}</td>
+    </tr>`
+            );
+        };
+
+
+        const renderTableDetails = (details) => {
+            return `<tr>
+    <td>${details[0]}</td>
+    <td>${details[1]}</td>
+    <td>${details[2]}</td>
+    <td>${details[3]}</td>
+    </tr> </br> <button onclick="refresh()">Go Back</button>`
+
+        };
+
+
+
+        function refresh() {
+            location.reload();
+        }
+
+        function mainFn(id) {
+            response.then((respo) => {
+                document.getElementById("tableBody").style.display = "none";
+                console.log(respo[id - 1])
+                const propName = Object.values(respo[id - 1])
+                document.getElementById("bodyDetails").innerHTML = renderTableDetails(propName);
+            });
+
+            // const resp = fetchCall
+            //     .then((val) => val.json())
+            //     .catch((error) => console.error(error));
+            // resp.then((val) => {
+            //     console.log("val:: ", val)
+            //     // document.getElementById("tableBody").style.display = "none";
+            //     // document.getElementById("bodyDetails").innerHTML = renderTableDetails(val);
+            // });
+        }
+
+        // var clickData = document.querySelector("#selectId");
+        // function sendRes(res) {
+        //     const strore = { ...res }
+        //     return strore;
+        // }
+        // clickData.addEventListener("click", sendRes(item.id));
+
+    </script> -->
+</body>
+
+</html>

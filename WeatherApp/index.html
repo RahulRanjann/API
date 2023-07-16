@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weathre App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="stage_1">
+        <div id="dateTime">
+            <div id="input">
+
+                <button id="btn_location">
+                    <svg width="40px" height="40px" viewBox="0 0 512 512" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <title>location</title>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Combined-Shape" fill="#000000" transform="translate(106.666667, 42.666667)">
+                                <path
+                                    d="M149.333333,7.10542736e-15 C231.807856,7.10542736e-15 298.666667,66.8588107 298.666667,149.333333 C298.666667,174.270044 292.571852,197.766489 281.750846,218.441128 L149.333333,448 L19.9831547,224.008666 C7.25333333,202.026667 2.84217094e-14,176.537017 2.84217094e-14,149.333333 C2.84217094e-14,66.8588107 66.8588107,7.10542736e-15 149.333333,7.10542736e-15 Z M149.333333,42.6666667 C90.42296,42.6666667 42.6666667,90.42296 42.6666667,149.333333 C42.6666667,166.273109 46.5745408,182.526914 53.969702,197.200195 L57.5535689,203.746216 L149.333333,362.666667 L241.761134,202.626841 C251.054097,186.579648 256,168.390581 256,149.333333 C256,90.42296 208.243707,42.6666667 149.333333,42.6666667 Z M149.333333,85.3333333 C184.679557,85.3333333 213.333333,113.987109 213.333333,149.333333 C213.333333,184.679557 184.679557,213.333333 149.333333,213.333333 C113.987109,213.333333 85.3333333,184.679557 85.3333333,149.333333 C85.3333333,113.987109 113.987109,85.3333333 149.333333,85.3333333 Z M149.333333,128 C137.551259,128 128,137.551259 128,149.333333 C128,161.115408 137.551259,170.666667 149.333333,170.666667 C161.115408,170.666667 170.666667,161.115408 170.666667,149.333333 C170.666667,137.551259 161.115408,128 149.333333,128 Z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+
+                <div id="country"></div>
+
+                <input class="input-field" id="city" type="text" placeholder="Your City name">
+
+                <button id="btn_search" onclick="fetchData()">
+                    <svg width="40px" height="40px" viewBox="0 -0.5 25 25" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5.5 11.9999C5.50034 9.13745 7.52262 6.67387 10.3301 6.11575C13.1376 5.55763 15.9484 7.06041 17.0435 9.70506C18.1386 12.3497 17.2131 15.3997 14.833 16.9897C12.4528 18.5798 9.28087 18.2671 7.257 16.2429C6.13183 15.1175 5.49981 13.5912 5.5 11.9999Z"
+                            stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.5 14.9999L13.268 13.2429C13.7367 12.7781 14.0003 12.1454 14.0003 11.4854C14.0003 10.8253 13.7367 10.1926 13.268 9.72786C12.2894 8.75673 10.7106 8.75673 9.73199 9.72786C9.26328 10.1926 8.99963 10.8253 8.99963 11.4854C8.99963 12.1454 9.26328 12.7781 9.73199 13.2429L11.5 14.9999Z"
+                            stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15.972 15.9999L19.5 18.9999" stroke="#000000" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <div id="time">
+                <div id="hour"> </div>
+                <div id="min"> </div>
+                <div id="sec"> </div>
+                <div id="sesation"> &nbsp;</div>
+            </div>
+
+            <div id="date">
+                <div id="day"> </div>
+                <div id="date"> </div>
+                <div id="month"> </div>
+                <div id="year"> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stage_2">
+        <div id="temperature">temperature</div>
+        <div id="humidity">humidity</div>
+        <div id="windSpeed">windSpeed</div>
+    </div>
+
+    <div class="stage_3">
+        <div id="pressure">pressure</div>
+        <div id="weather">Weathre</div>
+        <div id="sunRise">sunRise</div>
+    </div>
+    <div class="foot">made By &copy; Rahul Ranjan</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
