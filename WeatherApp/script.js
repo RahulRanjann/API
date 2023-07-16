@@ -20,7 +20,8 @@ async function fetchData() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      country.innerHTML = data.sys.country;
+      country.innerHTML = `<img src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/${data.sys.country}.svg" alt="${data.sys.country}">`;
+
       temp.innerHTML =
         "<img src='image/temperature-thermometer-svgrepo-com.svg'  class='temp' alt='Temperature'></img>" +
         (data.main.temp - 273.15).toFixed(2) +
@@ -45,6 +46,9 @@ async function fetchData() {
         data.weather[0].main +
         " &nbsp;";
       let icon = data.weather[0].icon;
+    } 
+    ).catch((err) => {
+      console.log("PLEASE ENTER VALID CITY NAME");
     });
   showTime();
 }
