@@ -12,6 +12,11 @@
 
     <div class="stage_1">
         <div id="dateTime">
+            <div id="time"></div>
+            <div id="date"></div>
+        </div>
+
+        <div class="overdiv">
             <div id="input">
 
                 <button id="btn_location">
@@ -28,45 +33,36 @@
                     </svg>
                 </button>
 
-                <div id="country" style="  width: 52px; margin-top: 19px">
-                   
-                </div>
+                <div id="country" style="  width: 40px;height: 40px; margin-top: 19px"></div>
 
-                <input class="input-field" id="city" type="text" placeholder="Your City name">
+                <input class="input-field" id="city" placeholder="Your City name">
 
                 <button id="btn_search" onclick="fetchData()">
                     <img src="image/search.svg" alt="search">
                 </button>
 
             </div>
-
-            <div id="time">
-                <div id="hour"> </div>
-                <div id="min"> </div>
-                <div id="sec"> </div>
-                <div id="sesation"> &nbsp;</div>
-            </div>
-
-            <div id="date">
-                <div id="day"> </div>
-                <div id="date"> </div>
-                <div id="month"> </div>
-                <div id="year"> </div>
-            </div>
         </div>
     </div>
 
     <div class="stage_2">
-        <div id="temperature">temperature</div>
-        <div id="humidity">humidity</div>
-        <div id="windSpeed">windSpeed</div>
+        <div id="box">&nbsp;Temperature<div id="temperature"></div>
+        </div>
+        <div id="box">&nbsp;Humidity<div id="humidity"></div>
+        </div>
+        <div id="box">&nbsp;WindSpeed<div id="windSpeed"></div>
+        </div>
     </div>
 
     <div class="stage_3">
-        <div id="pressure">pressure</div>
-        <div id="weather">Weather</div>
-        <div id="sunRise">sunRise</div>
+        <div id="box">&nbsp;Pressure<div id="pressure"></div>
+        </div>
+        <div id="box">&nbsp;Weather<div id="weather"></div>
+        </div>
+        <div id="box">&nbsp;SunRise<div id="sunRise"></div>
+        </div>
     </div>
+
     <div class="foot">made By &copy; Rahul Ranjan</div>
 
     <script src="script.js"></script>

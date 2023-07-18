@@ -7,6 +7,8 @@ let wind = document.getElementById("windSpeed");
 let pressure = document.getElementById("pressure");
 let sunRise = document.getElementById("sunRise");
 let weather = document.getElementById("weather");
+let btn = document.getElementById("btn_search");
+
 
 async function fetchData() {
   await fetch(
@@ -20,7 +22,7 @@ async function fetchData() {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      country.innerHTML = `<img src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/${data.sys.country}.svg" alt="${data.sys.country}">`;
+      country.innerHTML = `<img src="https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/${data.sys.country}.svg" alt="${data.sys.country}" style="  width: 40px; height: 40px;">`;
 
       temp.innerHTML =
         "<img src='image/temperature-thermometer-svgrepo-com.svg'  class='temp' alt='Temperature'></img>" +
@@ -34,10 +36,9 @@ async function fetchData() {
         " <img src='image/windy-wind-svgrepo-com.svg' alt='windSpeed' class='wind'> " +
         data.wind.speed +
         "m/s";
-      pressure.innerHTML = "Pressure : &nbsp;" + data.main.pressure + "hPa";
+      pressure.innerHTML = "<img src='image/gauge-svgrepo-com.svg' alt='Pressure' class='pressure'>" + data.main.pressure + "hPa";
       sunRise.innerHTML =
-        "Sunrise : &nbsp;" +
-        new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        "<img src='image/sunrise-sun-up-sea-svgrepo-com.svg' alt='SunRise' class='rise'>" +new Date(data.sys.sunrise * 1000).toLocaleTimeString();
       weather.innerHTML =
         "<img src='http://openweathermap.org/img/wn/" +
         data.weather[0].icon +
@@ -50,7 +51,14 @@ async function fetchData() {
     ).catch((err) => {
       console.log("PLEASE ENTER VALID CITY NAME");
     });
-  showTime();
+    console.log(city.value);
+    document.body.style.backgroundImage = `url("https://source.unsplash.com/1600x900/?${city.value}")`;
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
+    document.body.style.transition = "all 1s ease-in-out";
+  // showTime();
 }
 
 function showTime() {
@@ -102,3 +110,10 @@ function showTime() {
   ).innerHTML = `${H}:${M}:${S} &nbsp; ${session}`;
 }
 setInterval(showTime, 1000);
+
+city.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    btn.click();
+  }
+} );
