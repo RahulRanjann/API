@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Disclaimer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #128c7e;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #075e54;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Disclaimer</h1>
+        <p>This WhatsApp Message Sender is intended for fun and educational purposes only. Do not use this tool to bully, harass, or disturb anyone. The creator of this tool is not responsible for any misuse of the tool by users.</p>
+        <p>Please check the box below to acknowledge and agree to the disclaimer:</p>
+        
+        <form id="disclaimerForm">
+            <label>
+                <input type="checkbox" id="agreed" required> I have read and agree to the disclaimer.
+            </label>
+            <br>
+            <input type="submit" value="Next">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("disclaimerForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const agreed = document.getElementById("agreed").checked;
+            if (agreed) {
+                window.location.href = "WhatsappMessage.html"; 
+            } else {
+                alert("Please read and agree to the disclaimer before proceeding.");
+            }
+        });
+    </script>
+</body>
+
+</html>
